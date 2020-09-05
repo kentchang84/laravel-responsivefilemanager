@@ -37,7 +37,7 @@ try {
         $source_base = $config['ftp_base_folder'] . $config['upload_dir'];
         $thumb_base = $config['ftp_base_folder'] . $config['ftp_thumbs_dir'];
     } else {
-        $source_base = $config['current_path'];
+        $source_base = $config['storage_url'];
         $thumb_base = $config['thumbs_base_path'];
     }
 
