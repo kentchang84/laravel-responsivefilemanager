@@ -1188,7 +1188,7 @@ if (isset($filePermissions[$file])) {
                         $creation_thumb_path = $mini_src = $src_thumb = $thumbs_path. $file;
 
                         if (!file_exists($src_thumb)) {
-                            if (!RFM::createImg($ftp, storage_path($config['actual_thumbs_folder']).$file, 122, 91, 'crop', $config)) {
+                            if (!RFM::createImg($ftp, $cur_dir.$file, $cur_dir_thumb.$file,122, 91, 'crop', $config)) {
                                 $src_thumb = $mini_src = "";
                             }
                         }
@@ -1196,13 +1196,13 @@ if (isset($filePermissions[$file])) {
                         list($img_width, $img_height, $img_type, $attr)=@getimagesize($file_path);
                         if ($img_width<122 && $img_height<91) {
                             //kent
-                            $src_thumb=asset($config['storage_url']).'/'.$file;
+                            $src_thumb=asset($file_path);
                             $show_original=true;
                         }
 
                         if ($img_width<45 && $img_height<38) {
                             //kent
-                            $mini_src=asset($config['storage_url']).'/'.$file;
+                            $mini_src=asset($file_path);
                             $show_original_mini=true;
                         }
                     }

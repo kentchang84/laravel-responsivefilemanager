@@ -1610,9 +1610,9 @@ class UploadHandler
 
         if (!$this->options['ftp']) {
             //kent
-            $targetFile =  storage_path('app/public/uploads/images') .'/'. $res['files'][0]->name;
+            $targetFile =  storage_path('app/public/uploads/images/'.$_POST["fldr"]) .$res['files'][0]->name;
 //            $targetFile =  $targetPath . $res['files'][0]->name;
-            $targetFileThumb =  $targetPathThumb . $res['files'][0]->name;
+            $targetFileThumb =   storage_path('app/public/uploads/images/thumbs/'.$_POST["fldr"]). $res['files'][0]->name;
             if (!is_dir($targetPathThumb)) {
                 mkdir($targetPathThumb, $this->options['mkdir_mode'], true);
             }
